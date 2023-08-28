@@ -18,4 +18,4 @@ void main() {
 
 ### Output
 
-![Output!](/docs/img-01.png "Output")
+![Output!](/week-01/docs/img-01.png "Output")
