@@ -24,6 +24,7 @@
   ```
 
 - Output
+
   ![Output!](/week-02/docs/soal1.png "Output")
 
 ### Soal 2 - Why Dart?
@@ -90,7 +91,8 @@
   ```
 
   Output
-  [Output!](/week-01/docs/img-01.png "Output")
+
+  ![Output!](/week-01/docs/img-01.png "Output")
 
   - Main function
     Seperti kebanyakan bahasa modern, Dart menggunakan function dan method sebagai cara untuk memisahkan kode. Sebuah function atau method adalah potongan kode yang menerima beberapa data, eksekusi kode, dan kemudian mengembalikan beberapa data (return).
