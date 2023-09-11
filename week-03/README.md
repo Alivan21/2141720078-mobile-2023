@@ -10,8 +10,6 @@ Tugas : Minggu 2
   <h2>Pertemuan Ketiga - Pengantar Bahasa Pemrograman Dart Bagian 3</h2>
 </div>
 
----
-
 ## Praktikum 1 - Control Flow Statements
 
 Kode:
@@ -174,6 +172,7 @@ void main(List<String> args) {
 ```
 
 Output :
+
 ![Output-7!](/week-03/docs/tugas-praktikum_02.png "Output-7")
 
 Penjelasan :
