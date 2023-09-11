@@ -4,7 +4,7 @@ Nama : Alfan Olivan
 
 NIM : 2141720078
 
-Tugas : Minggu 2
+Tugas : Minggu 3
 
 <div align="center">
   <h2>Pertemuan Ketiga - Pengantar Bahasa Pemrograman Dart Bagian 3</h2>
