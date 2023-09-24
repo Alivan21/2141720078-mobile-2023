@@ -10,6 +10,17 @@ Tugas : Minggu 4
   <h2>Pertemuan Keempat - Pengantar Bahasa Pemrograman Dart Bagian 4</h2>
 </div>
 
+### Table of Contents
+
+- [Repository Mobile Programming Class 2023.](#repository-mobile-programming-class-2023)
+  - [Table of Contents](#table-of-contents)
+  - [Praktikum 1 - List](#praktikum-1---list)
+  - [Praktikum 2 - Set](#praktikum-2---set)
+  - [Praktikum 3 - Map](#praktikum-3---map)
+  - [Praktikum 4 - Spread Operator \& Control Flow Operators](#praktikum-4---spread-operator--control-flow-operators)
+  - [Praktikum 5 - Records](#praktikum-5---records)
+  - [Tugas Praktikum](#tugas-praktikum)
+
 ### Praktikum 1 - List
 
 1. Langkah 1
