@@ -420,3 +420,138 @@ Tugas : Minggu 4
    The setter '$1' isn't defined for the type '(String, String, {int a, bool b})'.
    Try importing the library that defines '$1', correcting the name to the name of an existing setter, or defining a setter or field named '$1'.
    ```
+
+### Tugas Praktikum
+
+1. Jelaskan yang dimaksud Functions dalam bahasa Dart!
+
+   Jawaban : Functions dalam dart adalah objek dan memiliki tipe Function. Ini berarti fungsi dapat ditetapkan ke variabel atau dipassing ke fungsi lain. Anda juga dapat mengambil fungsi dan mengembalikannya dari fungsi lain. Fungsi yang mengembalikan fungsi lain dikenal sebagai fungsi penghasil.
+
+   Contoh:
+
+   ```dart
+   bool isNoble(int atomicNumber) {
+   return _nobleGases[atomicNumber] != null;
+   }
+   ```
+
+2. Jelaskan jenis-jenis parameter di Functions beserta contoh sintaksnya!
+
+   Sebuah function dapat memiliki banyak parameter, dan parameter dapat memiliki nilai default. Baik berdasarkan named parameter atau optional parameter (tetapi tidak keduanya)
+
+   - Named Parameter
+
+     Dalam bahasa pemrograman Dart, Anda dapat menggunakan parameter bernama (named parameters) dalam fungsi yang digunakan untuk memberikan lebih banyak fleksibilitas dalam memanggil fungsi dengan argumen yang spesifik. Dengan parameter bernama, Anda dapat menyebutkan nama parameter secara eksplisit saat memanggil fungsi, sehingga Anda tidak perlu mengingat urutan parameter dalam daftar argumen.
+     Contoh:
+
+     ```dart
+     void printPersonInfo({String name, int age, String address}) {
+      print('Nama: $name');
+      print('Usia: $age');
+      print('Alamat: $address');
+     }
+
+     void main() {
+      // Memanggil fungsi printPersonInfo dengan parameter bernama
+      printPersonInfo(name: 'John', age: 30, address: '123 Main St');
+     }
+     ```
+
+   - Optional positional parameters
+
+     Dalam bahasa pemrograman Dart, Anda dapat menggunakan parameter posisional opsional (optional positional parameters) untuk memberikan fleksibilitas dalam jumlah argumen yang diberikan saat memanggil sebuah fungsi. Dengan parameter posisional opsional, Anda dapat mengizinkan beberapa argumen tanpa harus menyebutkan nama parameter saat memanggil fungsi.
+
+     Berikut adalah contoh sederhana dari sebuah fungsi dengan parameter posisional opsional dalam Dart:
+
+     ```dart
+     void greet(String greeting, [String? name = '']) {
+       print('$greeting, $name');
+     }
+     void main() {
+     // Memanggil fungsi greet dengan satu argumen
+       greet('Hello'); // Output: Hello,
+
+       // Memanggil fungsi greet dengan dua argumen
+       greet('Hi', 'Alice'); // Output: Hi, Alice
+     }
+     ```
+
+3. Jelaskan maksud Functions sebagai first-class objects beserta contoh sintaknya!
+
+   Dart mendukung fungsi sebagai first-class objects, atau fungsi yang dapat diberikan dan dikembalikan dari fungsi lain. Anda dapat mengasign fungsi ke variabel, mengirimkannya sebagai argumen ke fungsi lain, dan mengembalikan fungsi dari fungsi lain. Fungsi yang mengembalikan fungsi lain dikenal sebagai fungsi penghasil.
+
+   Contoh :
+
+   ```dart
+   // Assign a function to a variable
+   var say = (String msg) => print(msg);
+   // Pass a function as an argument to another function
+   void higherOrderFunction(Function myFunction) {
+     myFunction('Hello');
+   }
+   // Call a higher-order function
+   higherOrderFunction(say); // Output: Hello
+   ```
+
+4. Apa itu Anonymous Functions? Jelaskan dan berikan contohnya!
+
+   Anonymous function adalah fungsi yang tidak memiliki nama. Fungsi ini dapat disimpan dalam variabel dan digunakan sebagai argumen untuk fungsi lain. Dart mendukung dua jenis fungsi anonim: fungsi anonim yang dieksekusi (void) dan fungsi anonim yang mengembalikan nilai.
+
+   Contoh :
+
+   ```dart
+   // Anonymous function
+   var list = ['apples', 'bananas', 'oranges'];
+   list.forEach((item) {
+     print('${list.indexOf(item)}: $item');
+   });
+   ```
+
+5. Jelaskan perbedaan Lexical scope dan Lexical closures! Berikan contohnya!
+
+   Lexical scope adalah kemampuan sebuah fungsi untuk mengakses variabel yang berada di luar fungsi tersebut. Sedangkan Lexical closures adalah kemampuan sebuah fungsi untuk mengakses variabel yang berada di luar fungsi tersebut dan variabel yang berada di dalam fungsi tersebut.
+
+   Contoh :
+
+   ```dart
+   // Lexical scope
+   var outsideVariable = 'Hello';
+   void main() {
+     print(outsideVariable); // Output: Hello
+   }
+   ```
+
+   ```dart
+   // Lexical closures
+   void main() {
+     var outsideVariable = 'Hello';
+     void myFunction() {
+       print(outsideVariable);
+     }
+     myFunction(); // Output: Hello
+   }
+   ```
+
+6. Jelaskan dengan contoh cara membuat return multiple value di Functions!
+
+   Dengan menggunakan dart 3.0 hal ini dapat dilakukan dengan muda dengan menggunakan syntax berikut
+
+   ```dart
+    (int, String) foo() {
+    return (42, "foobar");
+   }
+
+   void main() {
+     var (a,b) = foo();
+     print("int: ${a}");
+     print("String: ${b}");
+   }
+   ```
+
+   Pada versi dart sebelum 3.0 hal ini tidak dapat dilakukan dan harus menggunakan list seperti berikut
+
+   ```dart
+   List foo() {
+    return [42, "foobar"];
+    }
+   ```
