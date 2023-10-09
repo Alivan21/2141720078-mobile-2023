@@ -1,3 +1,3 @@
 # layout_flutter
 
-A new Flutter project.
+Projek Pemrograman Mobile. Praktikum 07. Layouting & Navigation Flutter.
