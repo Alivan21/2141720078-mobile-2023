@@ -31,37 +31,56 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
-          backgroundColor: Colors.green,
+      appBar: AppBar(
+        title: const Text('Home Page'),
+        backgroundColor: Colors.green,
+      ),
+      body: Container(
+        margin: const EdgeInsets.all(8),
+        child: Column(
+          children: [
+            const Text(
+              'Nama: Alfan Olivan\nNim : 2141720078', // Your desired text here
+              style: TextStyle(
+                fontSize: 20, // Adjust the font size as needed
+                fontWeight: FontWeight.bold, // Add styling as needed
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+                height: 16), // Add some spacing between the text and ListView
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(8),
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  return InkWell(
+                    onTap: () =>
+                        Navigator.pushNamed(context, '/item', arguments: item),
+                    child: Card(
+                      child: Container(
+                        margin: const EdgeInsets.all(8),
+                        child: Row(
+                          children: [
+                            Expanded(child: Text(item.name)),
+                            Expanded(
+                              child: Text(
+                                'Rp ${item.price.toString()}',
+                                textAlign: TextAlign.end,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        body: Container(
-          margin: const EdgeInsets.all(8),
-          child: ListView.builder(
-            padding: const EdgeInsets.all(8),
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              final item = items[index];
-              return InkWell(
-                onTap: () =>
-                    Navigator.pushNamed(context, '/item', arguments: item),
-                child: Card(
-                    child: Container(
-                  margin: const EdgeInsets.all(8),
-                  child: Row(
-                    children: [
-                      Expanded(child: Text(item.name)),
-                      Expanded(
-                          child: Text(
-                        'Rp ${item.price.toString()}',
-                        textAlign: TextAlign.end,
-                      ))
-                    ],
-                  ),
-                )),
-              );
-            },
-          ),
-        ));
+      ),
+    );
   }
 }
