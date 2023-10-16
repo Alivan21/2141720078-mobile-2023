@@ -5,9 +5,27 @@ class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000),
-    Item(name: 'Salt', price: 2000),
-    Item(name: 'Egg', price: 4000),
+    Item(
+        name: 'Sugar',
+        price: 5000,
+        photoUrl:
+            'https://images.unsplash.com/photo-1628619876503-2db74e724757?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1820&q=80',
+        stock: 5,
+        rating: 4.2),
+    Item(
+        name: 'Burger',
+        price: 2000,
+        photoUrl:
+            'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1899&q=80',
+        stock: 10,
+        rating: 4),
+    Item(
+        name: 'Steak',
+        price: 4000,
+        photoUrl:
+            'https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        stock: 2,
+        rating: 4.5),
   ];
 
   @override
@@ -24,20 +42,24 @@ class HomePage extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (context, index) {
               final item = items[index];
-              return Card(
-                  child: Container(
-                margin: const EdgeInsets.all(8),
-                child: Row(
-                  children: [
-                    Expanded(child: Text(item.name)),
-                    Expanded(
-                        child: Text(
-                      item.price.toString(),
-                      textAlign: TextAlign.end,
-                    ))
-                  ],
-                ),
-              ));
+              return InkWell(
+                onTap: () =>
+                    Navigator.pushNamed(context, '/item', arguments: item),
+                child: Card(
+                    child: Container(
+                  margin: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(child: Text(item.name)),
+                      Expanded(
+                          child: Text(
+                        'Rp ${item.price.toString()}',
+                        textAlign: TextAlign.end,
+                      ))
+                    ],
+                  ),
+                )),
+              );
             },
           ),
         ));
