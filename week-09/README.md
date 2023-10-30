@@ -56,7 +56,10 @@ class MainApp extends StatelessWidget {
                 color: Colors.greenAccent,
                 width: 100,
                 child: const Text(
-                  text: 'This is a very long text that will be truncated',
+                  'This is a very long text that will be truncated',
+                  style: TextStyle(
+                    color: Colors.redAccent,
+                  ),
                 ),
               ),
             ],
