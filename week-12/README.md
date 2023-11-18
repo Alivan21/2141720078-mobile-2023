@@ -53,3 +53,63 @@ class MyApp extends StatelessWidget {
 2. Carilah judul buku favorit Anda di Google Books, lalu ganti ID buku pada variabel path di kode tersebut.
 
 ![Gambar 1](/week-12/docs/soal1.2.png)
+
+3. Jelaskan maksud kode langkah 5 tersebut terkait substring dan catchError!
+
+```dart
+class _FuturePageState extends State<FuturePage> {
+  String result = '';
+  bool isLoading = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Back from the Future'),
+      ),
+      body: Center(
+        child: Column(children: [
+          const Spacer(),
+          ElevatedButton(
+            child: const Text('GO!'),
+            onPressed: () {
+              setState(() {
+                isLoading = true;
+              });
+              Future.delayed(const Duration(seconds: 1)).then(((value) {
+                getData().then((value) {
+                  result = value.body.toString().substring(0, 450);
+                  setState(() {
+                    isLoading = false;
+                  });
+                }).catchError((e) {
+                  result = "An error occured $e";
+                  setState(() {
+                    isLoading = false;
+                  });
+                });
+              }));
+            },
+          ),
+          const Spacer(),
+          isLoading ? CircularProgressIndicator() : Text(result),
+          const Spacer(),
+        ]),
+      ),
+    );
+  }
+
+  Future<Response> getData() async {
+    const authority = 'www.googleapis.com';
+    const path = '/books/v1/volumes/_i6bDeoCQzsC';
+    Uri url = Uri.https(authority, path);
+    return await http.get(url);
+  }
+}
+```
+
+Maksud dari kode tersebut adalah untuk menampilkan data dari API Google Books. Substring digunakan untuk membatasi jumlah karakter yang ditampilkan. Sedangkan catchError digunakan untuk menampilkan pesan error jika terjadi error.
+
+4. Demo Aplikasi
+
+![Gambar 2](/week-12/docs/soal1.3.gif)
