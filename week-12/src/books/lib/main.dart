@@ -47,17 +47,18 @@ class _FuturePageState extends State<FuturePage> {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Spacer(),
           ElevatedButton(
-            child: const Text('GO!'),
-            onPressed: () {
-              getNumber().then((value) {
-                setState(() {
-                  result = value.toString();
-                });
-              }).catchError((e) {
-                result = 'An error occurred';
-              });
-            },
-          ),
+              onPressed: () {
+                returnError().then((value) {
+                  setState(() {
+                    result = 'success';
+                  });
+                }).catchError((onError) {
+                  setState(() {
+                    result = onError.toString();
+                  });
+                }).whenComplete(() => print('complete'));
+              },
+              child: const Text('GO!')),
           const Spacer(),
           Text('Result: $result'),
           const Spacer(),
@@ -117,13 +118,13 @@ class _FuturePageState extends State<FuturePage> {
   }
 
   void returnFG() {
-    FutureGroup<int> futureGroup = FutureGroup<int>();
-    futureGroup.add(returnOneAsync());
-    futureGroup.add(returnTwoAsync());
-    futureGroup.add(returnThreeAsync());
-    futureGroup.close();
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
 
-    futureGroup.future.then((List<int> value) {
+    futures.then((List<int> value) {
       int total = 0;
       for (var element in value) {
         total += element;
@@ -136,5 +137,10 @@ class _FuturePageState extends State<FuturePage> {
         result = 'An error occurred';
       });
     });
+  }
+
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
   }
 }

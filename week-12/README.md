@@ -19,6 +19,8 @@ Tugas : Minggu 12
   - [Praktikum 1](#praktikum-1)
   - [Pratiukum 2](#pratiukum-2)
   - [Praktikum 3](#praktikum-3)
+  - [Praktikum 4](#praktikum-4)
+  - [Praktikum 5](#praktikum-5)
 
 ### Praktikum 1
 
@@ -161,3 +163,56 @@ Kode di atas merupakan modifikasi dari kode sebelumnya dengan penambahan penanga
 
 Demo Aplikasi
 ![Gambar 5](/week-12/docs/soal3.5.gif)
+
+### Praktikum 4
+
+Demo Aplikasi
+![Gambar 6](/week-12/docs/soal4.7.gif)
+
+8. Jelaskan maksud perbedaan kode langkah 1 dan 4!
+
+Langkah 1
+
+```dart
+void returnFG() {
+ FutureGroup<int> futureGroup = FutureGroup<int>();
+ futureGroup.add(returnOneAsync());
+ futureGroup.add(returnTwoAsync());
+ futureGroup.add(returnThreeAsync());
+ futureGroup.close();
+
+ futureGroup.future.then((List<int> value) {
+   int total = 0;
+   for (var element in value) {
+     total += element;
+   }
+   setState(() {
+     result = total.toString();
+   });
+ }).catchError((e) {
+   setState(() {
+     result = 'An error occurred';
+   });
+ });
+}
+```
+
+Langkah 4
+
+```dart
+final futures = Future.wait<int>([
+  returnOneAsync(),
+  returnTwoAsync(),
+  returnThreeAsync(),
+]);
+```
+
+Perbedaannya terletak pada cara mengelola dan menunggu hasil dari beberapa Future. Langkah 1 menggunakan FutureGroup, sedangkan Langkah 4 menggunakan Future.wait untuk mencapai hasil yang serupa.
+
+### Praktikum 5
+
+9. Demo Aplikasi
+
+![Gambar 7](/week-12/docs/soal5.9.gif)
+
+10. Panggil method handleError() tersebut di ElevatedButton, lalu run. Apa hasilnya? Jelaskan perbedaan kode langkah 1 dan 4!
