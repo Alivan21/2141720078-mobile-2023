@@ -267,3 +267,7 @@ Secara tampilan tidak terdapat perbedaan dengan praktikum sebelumnya. Hal ini ka
 Demo Aplikasi
 
 ![Gambar 9](/week-12/docs/soal7.13.gif)
+
+14. Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
+
+Tidak ada perbedaan secara signifikan, perbedaan akan terlihat jika terdapat error pada saat mengambil location maka akan muncul pesan 'Someting went wrong!'.
