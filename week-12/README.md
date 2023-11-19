@@ -21,6 +21,8 @@ Tugas : Minggu 12
   - [Praktikum 3](#praktikum-3)
   - [Praktikum 4](#praktikum-4)
   - [Praktikum 5](#praktikum-5)
+  - [Praktikum 6](#praktikum-6)
+  - [Praktikum 7](#praktikum-7)
 
 ### Praktikum 1
 
@@ -245,3 +247,23 @@ Future handleError() async {
 ```
 
 Perbedaan utama antara keduanya adalah cara penanganan error. Langkah 1 melempar exception langsung, sementara Langkah 4 menggunakan blok try-catch untuk menangkap dan mengelola exception yang mungkin terjadi.
+
+### Praktikum 6
+
+12. Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+
+Saya mendapatkan koordinat GPS ketika run di browser. Hal ini karena browser dapat mengakses GPS dari perangkat yang digunakan.
+
+Demo Aplikasi
+
+![Gambar 8](/week-12/docs/soal6.12.jpeg)
+
+### Praktikum 7
+
+13. Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?
+
+Secara tampilan tidak terdapat perbedaan dengan praktikum sebelumnya. Hal ini karena pada praktikum sebelumnya hanya menggunakan conditional statement untuk menampilkan data, sedangkan pada praktikum ini menggunakan FutureBuilder.
+
+Demo Aplikasi
+
+![Gambar 9](/week-12/docs/soal7.13.gif)
