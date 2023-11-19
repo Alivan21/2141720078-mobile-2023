@@ -24,6 +24,7 @@ Tugas : Minggu 12
   - [Praktikum 6](#praktikum-6)
   - [Praktikum 7](#praktikum-7)
   - [Praktikum 8](#praktikum-8)
+  - [Praktikum 9](#praktikum-9)
 
 ### Praktikum 1
 
@@ -282,3 +283,13 @@ Jika kita klik button maka warna dari background akan berubah sesuai dengan warn
 Demo Aplikasi
 
 ![Gambar 10](/week-12/docs/soal8.16.gif)
+
+### Praktikum 9
+
+17. Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+Jika kita klik button maka warna dari background akan berubah sesuai dengan warna yang ada pada button. Hal ini terjadi karena pada setiap button terdapat event onPressed yang akan mengubah warna background sesuai dengan warna button yang diklik lalu kembali ke navigation_dialog_screen.
+
+Demo Aplikasi
+
+![Gambar 11](/week-12/docs/soal9.17.gif)
