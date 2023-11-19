@@ -23,6 +23,7 @@ Tugas : Minggu 12
   - [Praktikum 5](#praktikum-5)
   - [Praktikum 6](#praktikum-6)
   - [Praktikum 7](#praktikum-7)
+  - [Praktikum 8](#praktikum-8)
 
 ### Praktikum 1
 
@@ -271,3 +272,13 @@ Demo Aplikasi
 14. Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
 
 Tidak ada perbedaan secara signifikan, perbedaan akan terlihat jika terdapat error pada saat mengambil location maka akan muncul pesan 'Someting went wrong!'.
+
+### Praktikum 8
+
+16. Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+Jika kita klik button maka warna dari background akan berubah sesuai dengan warna yang ada pada button. Hal ini terjadi karena pada setiap button terdapat event onPressed yang akan mengubah warna background sesuai dengan warna button yang diklik lalu kembali ke navigation_first screen.
+
+Demo Aplikasi
+
+![Gambar 10](/week-12/docs/soal8.16.gif)
