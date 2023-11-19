@@ -216,3 +216,32 @@ Perbedaannya terletak pada cara mengelola dan menunggu hasil dari beberapa Futur
 ![Gambar 7](/week-12/docs/soal5.9.gif)
 
 10. Panggil method handleError() tersebut di ElevatedButton, lalu run. Apa hasilnya? Jelaskan perbedaan kode langkah 1 dan 4!
+
+Hasil dari kode langkah 4 adalah success. Outputnya 'success' karena menggunakan then setelah memanggil handleError(). Pada dasarnya, then digunakan untuk menangkap hasil atau nilai kembalian dari suatu Future ketika itu selesai. Dalam konteks ini, setelah fungsi handleError() selesai dieksekusi, then dijalankan, dan dalam blok then, telah diatur nilai result menjadi 'success'.
+
+Langkah 1:
+
+```dart
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
+  }
+```
+
+Langkah 4:
+
+```dart
+Future handleError() async {
+    try {
+      await returnError();
+    } catch (e) {
+      setState(() {
+        result = e.toString();
+      });
+    } finally {
+      print('Complete');
+    }
+  }
+```
+
+Perbedaan utama antara keduanya adalah cara penanganan error. Langkah 1 melempar exception langsung, sementara Langkah 4 menggunakan blok try-catch untuk menangkap dan mengelola exception yang mungkin terjadi.
