@@ -22,6 +22,7 @@ Tugas : Minggu 13
   - [Praktikum 4](#praktikum-4)
   - [Praktikum 5](#praktikum-5)
   - [Praktikum 6](#praktikum-6)
+  - [Praktikum 7](#praktikum-7)
 
 ### Praktikum 1
 
@@ -479,3 +480,35 @@ Tugas : Minggu 13
     Demo Aplikasi
 
     ![Gambar6](/week-13/docs/6.12.gif)
+
+### Praktikum 7
+
+13. Jelaskan maksud praktikum ini ! Dimanakah letak konsep pola BLoC-nya ?
+
+    Jawab:
+
+    - main.dart:
+
+      - Fungsi main merupakan entry point dari aplikasi Flutter. Di dalamnya, MainApp dijalankan menggunakan runApp.
+      - Kelas MainApp adalah turunan dari StatelessWidget dan merupakan tampilan utama aplikasi.Di dalam MainApp, terdapat pengaturan dasar aplikasi menggunakan MaterialApp, dengan judul dan tema tertentu.
+      - Halaman utama aplikasi diatur menggunakan widget RandomScreen.
+
+    - random_screen.dart:
+
+      - Kelas RandomScreen adalah turunan dari StatefulWidget dan digunakan untuk menampilkan antarmuka pengguna (UI) untuk menampilkan angka acak.
+      - Di dalam RandomScreen, terdapat \_RandomScreenState, yang merupakan state untuk widget ini.
+      - Pada build method, terdapat StreamBuilder yang mendengarkan perubahan pada stream \_bloc.randomNumber. Jika ada perubahan, teks yang menampilkan angka acak akan diperbarui.
+      - Terdapat juga FloatingActionButton yang, ketika ditekan, akan memicu pembangkitan angka acak melalui \_bloc.generateRandomNumber.
+
+    - random_bloc.dart:
+      - Kelas RandomNumberBloc berperan sebagai BLoC untuk mengelola logika bisnis terkait angka acak.
+      - Dalam konstruktor RandomNumberBloc, terdapat inisialisasi controller yang mendengarkan peristiwa pembangkitan angka acak dan kemudian mengirimkan angka tersebut ke dalam stream \_randomNumberController.
+      - Metode dispose digunakan untuk menutup controller stream ketika tidak diperlukan lagi, menghindari kebocoran memori.
+      - Terdapat dua controller, yaitu \_generateRandomController (untuk menerima peristiwa pembangkitan angka acak) dan \_randomNumberController (untuk mengirim angka acak ke UI).
+      - Melalui getter, widget RandomScreen dapat mengakses sink untuk mengirim peristiwa pembangkitan angka acak dan stream untuk mendengarkan angka acak yang dihasilkan.
+
+    Konsep pola BLoC terlihat pada pemisahan logika bisnis (kelas RandomNumberBloc) dari tampilan (kelas RandomScreen) dan bagaimana mereka berinteraksi melalui stream dan sink. Ini membantu menjaga kode yang bersih dan mudah di-maintain.
+
+    Demo Aplikasi
+
+    ![Gambar7](/week-13/docs/7.13.gif)
