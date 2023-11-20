@@ -19,6 +19,8 @@ Tugas : Minggu 13
   - [Praktikum 1](#praktikum-1)
   - [Praktikum 2](#praktikum-2)
   - [Praktikum 3](#praktikum-3)
+  - [Praktikum 4](#praktikum-4)
+  - [Praktikum 5](#praktikum-5)
 
 ### Praktikum 1
 
@@ -184,3 +186,71 @@ Tugas : Minggu 13
    Demo Aplikasi
 
    ![Gambar3](/week-13/docs/3.8.gif)
+
+### Praktikum 4
+
+9. Jelaskan maksud kode langkah 2, 6 dan 8 tersebut!
+
+   Langkah 2:
+
+   ```dart
+   @override
+   void initState() {
+   numberStream = NumberStream();
+   numberStreamController = numberStream.controller;
+   Stream stream = numberStreamController.stream;
+   subscription = stream.listen((event) {
+     setState(() {
+       lastNumber = event;
+     });
+   });
+   subscription.onError((err) {
+     setState(() {
+       lastNumber = -1;
+     });
+   });
+   subscription.onDone(() {
+     print('OnDone was called');
+   });
+   super.initState();
+   }
+   ```
+
+   Langkah 6:
+
+   ```dart
+   @override
+   void dispose() {
+    numberStreamController.close();
+    subscription.cancel();
+    super.dispose();
+   }
+   ```
+
+   Langkah 8:
+
+   ```dart
+   void addRandomNumber() {
+   Random random = Random();
+   int randomNumber = random.nextInt(10);
+   if (!numberStreamController.isClosed) {
+     numberStream.addNumberToSink(randomNumber);
+   } else {
+     setState(() {
+       lastNumber = -1;
+     });
+   }
+   }
+   ```
+
+   Jawab:
+
+   - Langkah 2 adalah untuk mendapatkan nilai dari stream yang dihasilkan oleh controller saat initialisasi widget dan menangkap error dan done yang terjadi.
+   - Langkah 6 adalah untuk menutup controller dan menghentikan subscription.
+   - Langkah 8 adalah untuk menambahkan nilai random dari angka 0-10 ke dalam stream jika controller belum ditutup, jika controller sudah ditutup maka akan menampilkan nilai -1.
+
+   Demo Aplikasi
+
+   ![Gambar4](/week-13/docs/4.9.gif)
+
+### Praktikum 5
