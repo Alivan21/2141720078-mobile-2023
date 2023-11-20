@@ -35,3 +35,7 @@ Tugas : Minggu 13
 
    - yield\* digunakan untuk mengembalikan nilai dari sebuah fungsi stream.
    - Maksud dari kode tersebut adalah untuk mengembalikan nilai dari fungsi stream yang berupa warna secara berulang setiap 1 detik.
+
+4. Demo Aplikasi
+
+![Gambar1](/week-13/docs/1.4.gif)
