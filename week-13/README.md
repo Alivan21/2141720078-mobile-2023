@@ -18,6 +18,7 @@ Tugas : Minggu 13
   - [Table of Contents](#table-of-contents)
   - [Praktikum 1](#praktikum-1)
   - [Praktikum 2](#praktikum-2)
+  - [Praktikum 3](#praktikum-3)
 
 ### Praktikum 1
 
@@ -135,3 +136,51 @@ Tugas : Minggu 13
    - Langkah 13 adalah untuk menambahkan fungsi error ke dalam stream.
    - Langkah 14 adalah untuk mendapatkan nilai dari stream yang dihasilkan oleh controller saat initialisasi widget dan menangkap error yang terjadi.
    - Langkah 15 adalah untuk merubah fungsi addRandomNumber agar terjadi error.
+
+### Praktikum 3
+
+8. Jelaskan maksud kode langkah 1-3 tersebut!
+
+   Langkah 1:
+
+   ```dart
+   late StreamTransformer transformer;
+   ```
+
+   Langkah 2:
+
+   ```dart
+    transformer = StreamTransformer<int, int>.fromHandlers(
+        handleData: (int value, EventSink<int> sink) {
+      sink.add(value * 10);
+    }, handleError: (error, stackTrace, EventSink<int> sink) {
+      sink.add(-1);
+    }, handleDone: (EventSink<int> sink) {
+      sink.close();
+    });
+   ```
+
+   Langkah 3:
+
+   ```dart
+   stream.transform(transformer).listen((event) {
+      setState(() {
+        lastNumber = event;
+      });
+    }).onError((err) {
+      setState(() {
+        lastNumber = -1;
+      });
+    });
+   super.initState();
+   ```
+
+   Jawab:
+
+   - Langkah 1 adalah untuk mendeklarasikan sebuah stream transformer.
+   - Langkah 2 adalah untuk membuat sebuah stream transformer yang berfungsi untuk mengubah nilai stream menjadi nilai yang dikalikan 10.
+   - Langkah 3 adalah untuk mendapatkan nilai dari stream yang dihasilkan oleh controller saat initialisasi widget dan menangkap error yang terjadi.
+
+   Demo Aplikasi
+
+   ![Gambar3](/week-13/docs/3.8.gif)
