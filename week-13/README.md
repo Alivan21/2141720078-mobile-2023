@@ -21,6 +21,7 @@ Tugas : Minggu 13
   - [Praktikum 3](#praktikum-3)
   - [Praktikum 4](#praktikum-4)
   - [Praktikum 5](#praktikum-5)
+  - [Praktikum 6](#praktikum-6)
 
 ### Praktikum 1
 
@@ -414,3 +415,67 @@ Tugas : Minggu 13
     Demo Aplikasi
 
     ![Gambar5](/week-13/docs/5.11.gif)
+
+### Praktikum 6
+
+12. Jelaskan maksud kode pada langkah 3 dan 7 !
+
+    Langkah 3:
+
+    ```dart
+    import 'dart:math';
+
+    class NumberStream {
+      Stream<int> getNumbers() async* {
+        yield* Stream.periodic(Duration(seconds: 1), (int a) {
+          Random random = Random();
+          int randomNumber = random.nextInt(100);
+          return randomNumber;
+        });
+      }
+    }
+    ```
+
+    Langkah 7:
+
+    ```dart
+    @override
+    Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Stream Alfan'),
+      ),
+      body: StreamBuilder(
+        stream: numberStream,
+        initialData: 0,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('Error'),
+            );
+          } else if (snapshot.hasData) {
+            return Center(
+              child: Text(
+                snapshot.data.toString(),
+                style: const TextStyle(fontSize: 72),
+              ),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+    );
+    }
+    ```
+
+    Jawab:
+
+    - Langkah 3 adalah untuk mendapatkan nilai dari stream yang dihasilkan oleh fungsi getNumbers.
+    - Langkah 7 adalah untuk mendapatkan nilai dari stream yang dihasilkan oleh fungsi getNumbers dan menampilkan nilai tersebut ke dalam widget Text.
+
+    Demo Aplikasi
+
+    ![Gambar6](/week-13/docs/6.12.gif)
