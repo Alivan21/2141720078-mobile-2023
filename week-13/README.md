@@ -87,3 +87,51 @@ Tugas : Minggu 13
    Demo Aplikasi
 
    ![Gambar2](/week-13/docs/2.6.gif)
+
+7. Jelaskan maksud kode langkah 13 sampai 15 tersebut!
+
+   Langkah 13:
+
+   ```dart
+    addError() {
+      controller.sink.addError('error');
+    }
+   ```
+
+   Langkah 14:
+
+   ```dart
+     @override
+     void initState() {
+       numberStream = NumberStream();
+       numberStreamController = numberStream.controller;
+       Stream stream = numberStreamController.stream;
+       stream.listen((event) {
+         setState(() {
+           lastNumber = event;
+         });
+       }).onError((err) {
+         setState(() {
+           lastNumber = -1;
+         });
+       });
+       super.initState();
+     }
+   ```
+
+   Langkah 15:
+
+   ```dart
+   void addRandomNumber() {
+      Random random = Random();
+      // int randomNumber = random.nextInt(10);
+      // numberStream.addNumberToSink(randomNumber);
+      numberStream.addError();
+    }
+   ```
+
+   Jawab:
+
+   - Langkah 13 adalah untuk menambahkan fungsi error ke dalam stream.
+   - Langkah 14 adalah untuk mendapatkan nilai dari stream yang dihasilkan oleh controller saat initialisasi widget dan menangkap error yang terjadi.
+   - Langkah 15 adalah untuk merubah fungsi addRandomNumber agar terjadi error.

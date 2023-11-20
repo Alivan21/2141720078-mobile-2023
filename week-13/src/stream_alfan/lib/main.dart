@@ -46,6 +46,10 @@ class _StreamHomePageState extends State<StreamHomePage> {
       setState(() {
         lastNumber = event;
       });
+    }).onError((err) {
+      setState(() {
+        lastNumber = -1;
+      });
     });
     super.initState();
   }
