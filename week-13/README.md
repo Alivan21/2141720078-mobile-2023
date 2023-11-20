@@ -39,3 +39,10 @@ Tugas : Minggu 13
 4. Demo Aplikasi
 
 ![Gambar1](/week-13/docs/1.4.gif)
+
+5. Jelaskan perbedaan menggunakan listen dan await for
+
+   Jawab :
+
+   - await for digunakan untuk menunggu nilai dari sebuah stream.
+   - listen digunakan untuk mendapatkan nilai dari sebuah stream.
