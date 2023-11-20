@@ -17,6 +17,7 @@ Tugas : Minggu 13
 - [Repository Mobile Programming Class 2023.](#repository-mobile-programming-class-2023)
   - [Table of Contents](#table-of-contents)
   - [Praktikum 1](#praktikum-1)
+  - [Praktikum 2](#praktikum-2)
 
 ### Praktikum 1
 
@@ -46,3 +47,43 @@ Tugas : Minggu 13
 
    - await for digunakan untuk menunggu nilai dari sebuah stream.
    - listen digunakan untuk mendapatkan nilai dari sebuah stream.
+
+### Praktikum 2
+
+6. Jelaskan maksud kode langkah 8 dan 10 tersebut!
+
+   Langkah 8:
+
+   ```dart
+     @override
+     void initState() {
+       numberStream = NumberStream();
+       numberStreamController = numberStream.controller;
+       Stream stream = numberStreamController.stream;
+       stream.listen((event) {
+         setState(() {
+           lastNumber = event;
+         });
+       });
+       super.initState();
+     }
+   ```
+
+   Langkah 10:
+
+   ```dart
+   void addRandomNumber() {
+     Random random = Random();
+     int myNum = random.nextInt(10);
+     numberStream.addNumberToSink(myNum);
+   }
+   ```
+
+   Jawab :
+
+   - Langkah 8 digunakan untuk mendapatkan nilai dari stream yang dihasilkan oleh controller saat initialisasi widget.
+   - Langkah 10 digunakan untuk menambahkan nilai random dari angka 0-10 ke dalam stream.
+
+   Demo Aplikasi
+
+   ![Gambar2](/week-13/docs/2.6.gif)
